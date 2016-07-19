@@ -10,4 +10,9 @@
 
 @interface ReviewViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *movieTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *movieCriticsRatingLabel;
+@property (strong, nonatomic) IBOutlet UILabel *movieRunTimeLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *largeMoviePosterImageView;
+
 @end

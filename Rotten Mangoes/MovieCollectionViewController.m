@@ -12,7 +12,6 @@
 
 @interface MovieCollectionViewController ()
 
-//@property NSMutableArray *movies;
 @property NSMutableArray *movieArray;
 
 @end
@@ -24,7 +23,9 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.movieArray = [[NSMutableArray alloc] init];
+
+    self.collectionView.backgroundColor = [UIColor lightGrayColor];
     
     // Defining URLString:
     NSString *urlString = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=j9fhnct2tp8wu2q9h75kanh9&page_limit=50";
@@ -36,37 +37,35 @@ static NSString * const reuseIdentifier = @"Cell";
             
             NSError *jsonError = nil;
             NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError][@"movies"];
-            self.movieArray = [[NSMutableArray alloc] init];
             
             
             
             for (NSDictionary *eachMovie in movies) {
                 
                 NSString *title = eachMovie[@"title"];
-                
-                
                 NSNumber *year = eachMovie[@"year"];
                 NSNumber *runtime = eachMovie[@"runtime"];
-                NSString *rating = eachMovie[@"critics_rating"];
+                NSString *rating = eachMovie[@"ratings"][@"critics_rating"];
                 NSString *imageString = eachMovie[@"posters"][@"original"];
+                NSString *synopsis = eachMovie[@"synopsis"];
 //                 Converting imageString into an URL then an UIImage:
                 NSURL *imageURL = [NSURL URLWithString:imageString];
                 NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                 UIImage *image = [[UIImage alloc] initWithData:imageData];
                 
-                Movie *aMovie = [[Movie alloc] initWithMovieTitle:title year:year runtime:runtime poster:image andCriticsRating:rating];
-                NSLog(@"A movie's name is :%@.", aMovie.movieTitle);
+                Movie *aMovie = [[Movie alloc] initWithMovieTitle:title year:year runtime:runtime poster:image synopsis:synopsis andCriticsRating:rating];
+//                NSLog(@"A movie's name is %@, it was released in %@ and has a rating of %@!", aMovie.movieTitle, aMovie.movieYear, aMovie.criticsRating);
 //                 Add each movie into an NSMutableDictionary:
                 [self.movieArray addObject:aMovie];
             }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
 
         }
     }];
     [dataTask resume];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 
@@ -79,52 +78,28 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
+//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+//    return 1;
+//}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.movieArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    MovieCell *aMovieCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
+    Movie *aMovieInCell = self.movieArray[indexPath.row];
+    [aMovieCell configureWithMovie:aMovieInCell];
     
-    return cell;
+    return aMovieCell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

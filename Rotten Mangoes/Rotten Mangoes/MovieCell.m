@@ -14,6 +14,7 @@
     self.moviePoster.image = movie.moviePoster;
     self.movieTitle.text = movie.movieTitle;
     self.movieYear.text = [movie.movieYear stringValue];
+    self.movieRatings.text = movie.criticsRating;
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation Movie
 
-- (instancetype)initWithMovieTitle:(NSString *)title year:(NSNumber *)year runtime:(NSNumber *)runtime  poster:(UIImage *)poster andCriticsRating:(NSString *)criticsRating
+- (instancetype)initWithMovieTitle:(NSString *)title year:(NSNumber *)year runtime:(NSNumber *)runtime poster:(UIImage *)poster synopsis:(NSString *)synopsis andCriticsRating:(NSString *)criticsRating
 {
     self = [super init];
     if (self) {
@@ -18,6 +18,7 @@
         _movieYear = year;
         _movieRunTime = runtime;
         _moviePoster = poster;
+        _synopsis = synopsis;
         _criticsRating = criticsRating;
     }
     return self;
