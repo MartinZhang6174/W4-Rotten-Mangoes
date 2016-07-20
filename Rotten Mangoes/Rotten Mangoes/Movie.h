@@ -16,8 +16,8 @@
 @property (nonatomic, strong) NSNumber *movieRunTime;
 @property (nonatomic, strong) NSString *criticsRating;
 @property (nonatomic, strong) NSString *synopsis;
-@property (nonatomic, strong) UIImage *moviePoster;
+@property (nonatomic, strong) NSURL *moviePosterURL;
 
-- (instancetype)initWithMovieTitle:(NSString *)title year:(NSNumber *)year runtime:(NSNumber *)runtime poster:(UIImage *)poster synopsis:(NSString *)synopsis andCriticsRating:(NSString *)criticsRating;
+- (instancetype)initWithMovieTitle:(NSString *)title year:(NSNumber *)year runtime:(NSNumber *)runtime poster:(NSURL *)poster synopsis:(NSString *)synopsis andCriticsRating:(NSString *)criticsRating;
 
 @end

@@ -17,7 +17,7 @@
         _movieTitle = title;
         _movieYear = year;
         _movieRunTime = runtime;
-        _moviePoster = poster;
+        _moviePosterURL = poster;
         _synopsis = synopsis;
         _criticsRating = criticsRating;
     }

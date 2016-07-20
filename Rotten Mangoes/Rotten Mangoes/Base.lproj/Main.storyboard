@@ -74,7 +74,7 @@
                                     <outlet property="movieRatings" destination="75v-Mb-2fV" id="3Ec-Hl-hba"/>
                                     <outlet property="movieTitle" destination="t1V-Ha-0BG" id="EZY-J0-IHV"/>
                                     <outlet property="movieYear" destination="rYR-ZW-Sbr" id="wFG-ez-SSq"/>
-                                    <segue destination="QVc-Ek-4Tn" kind="show" id="h28-u2-UAC"/>
+                                    <segue destination="QVc-Ek-4Tn" kind="show" identifier="segueToDetailViewController" id="h28-u2-UAC"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="2502" y="-728"/>
         </scene>
-        <!--Movie Review-->
+        <!--Reviews-->
         <scene sceneID="N50-3j-dwQ">
             <objects>
                 <viewController id="QVc-Ek-4Tn" customClass="ReviewViewController" sceneMemberID="viewController">
@@ -102,49 +102,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1b-ZP-LLR">
-                                <rect key="frame" x="281" y="84" width="37.5" height="24"/>
+                                <rect key="frame" x="281" y="124" width="37.5" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKy-Oa-Vey">
-                                <rect key="frame" x="277" y="133" width="45" height="21"/>
+                                <rect key="frame" x="277" y="208" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WLj-Yv-9ZL">
-                                <rect key="frame" x="125" y="179" width="350" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="P8j-eT-pRP"/>
-                                    <constraint firstAttribute="width" constant="350" id="sMW-bg-sg0"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="runtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNU-QK-tV5">
-                                <rect key="frame" x="267.5" y="549" width="64" height="21"/>
+                                <rect key="frame" x="268" y="589" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WLj-Yv-9ZL">
+                                <rect key="frame" x="165" y="279" width="270" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="P8j-eT-pRP"/>
+                                    <constraint firstAttribute="width" constant="270" id="sMW-bg-sg0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WLj-Yv-9ZL" firstAttribute="centerX" secondItem="oXT-Nz-xb9" secondAttribute="centerX" id="6yf-H7-6A4"/>
-                            <constraint firstItem="WLj-Yv-9ZL" firstAttribute="top" secondItem="FKy-Oa-Vey" secondAttribute="bottom" constant="25" id="Cta-lF-qxd"/>
-                            <constraint firstItem="A1b-ZP-LLR" firstAttribute="top" secondItem="Ilf-Ne-PtU" secondAttribute="bottom" constant="20" id="FNK-KP-hlA"/>
+                            <constraint firstItem="WLj-Yv-9ZL" firstAttribute="top" secondItem="FKy-Oa-Vey" secondAttribute="bottom" constant="50" id="Cta-lF-qxd"/>
+                            <constraint firstItem="A1b-ZP-LLR" firstAttribute="top" secondItem="Ilf-Ne-PtU" secondAttribute="bottom" constant="60" id="FNK-KP-hlA"/>
                             <constraint firstItem="A1b-ZP-LLR" firstAttribute="centerX" secondItem="oXT-Nz-xb9" secondAttribute="centerX" id="Fbb-YT-fQ3"/>
                             <constraint firstItem="FKy-Oa-Vey" firstAttribute="centerX" secondItem="oXT-Nz-xb9" secondAttribute="centerX" id="Iwx-w4-gmQ"/>
                             <constraint firstItem="eNU-QK-tV5" firstAttribute="centerX" secondItem="oXT-Nz-xb9" secondAttribute="centerX" id="Rm6-Mp-myO"/>
-                            <constraint firstItem="FKy-Oa-Vey" firstAttribute="top" secondItem="A1b-ZP-LLR" secondAttribute="bottom" constant="25" id="oqk-f1-tAN"/>
-                            <constraint firstItem="eNU-QK-tV5" firstAttribute="top" secondItem="WLj-Yv-9ZL" secondAttribute="bottom" constant="20" id="ygh-zl-X6S"/>
+                            <constraint firstItem="FKy-Oa-Vey" firstAttribute="top" secondItem="A1b-ZP-LLR" secondAttribute="bottom" constant="60" id="oqk-f1-tAN"/>
+                            <constraint firstItem="eNU-QK-tV5" firstAttribute="top" secondItem="WLj-Yv-9ZL" secondAttribute="bottom" constant="60" id="ygh-zl-X6S"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie Review" id="LqZ-tD-VSx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="tgx-Qg-LUU">
+                    <navigationItem key="navigationItem" title="Reviews" id="LqZ-tD-VSx">
+                        <barButtonItem key="rightBarButtonItem" title="Show Theatre Directions" style="done" id="tgx-Qg-LUU">
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="findingTheatresButtonPressed:" destination="QVc-Ek-4Tn" id="vA9-Io-UUx"/>
+                                <segue destination="JPT-Vs-dBg" kind="show" identifier="segueToMapView" id="fI8-3y-ci4"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="findLocationButton" destination="tgx-Qg-LUU" id="x5g-YO-QJv"/>
                         <outlet property="largeMoviePosterImageView" destination="WLj-Yv-9ZL" id="vbl-fv-A6p"/>
                         <outlet property="movieCriticsRatingLabel" destination="FKy-Oa-Vey" id="Q5d-LT-QoY"/>
                         <outlet property="movieRunTimeLabel" destination="eNU-QK-tV5" id="Byg-yX-L1u"/>
@@ -153,7 +158,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHy-CD-tsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3270" y="-728"/>
+            <point key="canvasLocation" x="3278" y="-728"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="hQQ-VO-umM">
+            <objects>
+                <viewController id="JPT-Vs-dBg" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F30-5f-oKr"/>
+                        <viewControllerLayoutGuide type="bottom" id="EHd-mM-tOf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TNH-Fb-Jx0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-6G-3Uh">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JPT-Vs-dBg" id="dq2-qw-vWd"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aYY-6G-3Uh" firstAttribute="top" secondItem="F30-5f-oKr" secondAttribute="bottom" id="1Wn-z4-Bay"/>
+                            <constraint firstAttribute="trailing" secondItem="aYY-6G-3Uh" secondAttribute="trailing" id="YLq-lA-xSd"/>
+                            <constraint firstItem="EHd-mM-tOf" firstAttribute="top" secondItem="aYY-6G-3Uh" secondAttribute="bottom" id="sCt-v9-xJW"/>
+                            <constraint firstItem="aYY-6G-3Uh" firstAttribute="leading" secondItem="TNH-Fb-Jx0" secondAttribute="leading" id="xR7-dt-9n5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="theatreDirectionMapKitView" destination="aYY-6G-3Uh" id="C93-lb-u1Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1TU-t4-I6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4032" y="-728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JVn-R6-Q8h">

@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *movieYear;
 @property (strong, nonatomic) IBOutlet UILabel *movieRatings;
 
+@property (strong, nonatomic) NSURLSessionTask *task;
+
 -(void)configureWithMovie:(Movie *)movie;
 
 @end

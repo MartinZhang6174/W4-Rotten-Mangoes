@@ -7,6 +7,7 @@
 //
 
 #import "MovieCollectionViewController.h"
+#import "ReviewViewController.h"
 #import "Movie.h"
 #import "MovieCell.h"
 
@@ -19,6 +20,7 @@
 @implementation MovieCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
+static NSString * const segueToDetailViewController = @"segueToDetailViewController";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,10 +52,11 @@ static NSString * const reuseIdentifier = @"Cell";
                 NSString *synopsis = eachMovie[@"synopsis"];
 //                 Converting imageString into an URL then an UIImage:
                 NSURL *imageURL = [NSURL URLWithString:imageString];
-                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-                UIImage *image = [[UIImage alloc] initWithData:imageData];
+                //NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                //UIImage *image = nil;
+                //[[UIImage alloc] initWithData:imageData];
                 
-                Movie *aMovie = [[Movie alloc] initWithMovieTitle:title year:year runtime:runtime poster:image synopsis:synopsis andCriticsRating:rating];
+                Movie *aMovie = [[Movie alloc] initWithMovieTitle:title year:year runtime:runtime poster:imageURL synopsis:synopsis andCriticsRating:rating];
 //                NSLog(@"A movie's name is %@, it was released in %@ and has a rating of %@!", aMovie.movieTitle, aMovie.movieYear, aMovie.criticsRating);
 //                 Add each movie into an NSMutableDictionary:
                 [self.movieArray addObject:aMovie];
@@ -72,7 +75,13 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    if (![segue.identifier isEqualToString:segueToDetailViewController]) {
+        return;
+    }
+    
+    ReviewViewController *destinationViewController = [segue destinationViewController];
+    Movie *movieForReview = self.movieArray[self.collectionView.indexPathsForSelectedItems.firstObject.row];
+    destinationViewController.movieForReviewing = movieForReview;
 }
 
 
@@ -89,11 +98,14 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *aMovieCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    NSLog(@"congiguring %@", indexPath);
+    
     // Configure the cell
     Movie *aMovieInCell = self.movieArray[indexPath.row];
     [aMovieCell configureWithMovie:aMovieInCell];
     
     return aMovieCell;
+    
 }
 
 #pragma mark <UICollectionViewDelegate>

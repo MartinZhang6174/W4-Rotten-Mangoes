@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CB093921D3F015700C34058 /* MyLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB093911D3F015700C34058 /* MyLocationManager.m */; };
+		9CB093951D3F05FB00C34058 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB093941D3F05FB00C34058 /* MapViewController.m */; };
+		9CB0939B1D3F095700C34058 /* Theatre.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB0939A1D3F095700C34058 /* Theatre.m */; };
 		9CC7A7C91D3D720C00D64389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7A7C81D3D720C00D64389 /* main.m */; };
 		9CC7A7CC1D3D720C00D64389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7A7CB1D3D720C00D64389 /* AppDelegate.m */; };
 		9CC7A7D51D3D720C00D64389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC7A7D31D3D720C00D64389 /* Main.storyboard */; };
@@ -16,9 +19,16 @@
 		9CC7A80F1D3DB13300D64389 /* MovieCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7A80E1D3DB13300D64389 /* MovieCollectionViewController.m */; };
 		9CC7A8121D3DB16A00D64389 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7A8111D3DB16A00D64389 /* ReviewViewController.m */; };
 		9CC7A8151D3DCDEF00D64389 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CC7A8141D3DCDEF00D64389 /* MovieCell.m */; };
+		9CC7A8191D3EE39A00D64389 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC7A8181D3EE39A00D64389 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9CB093901D3F015700C34058 /* MyLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocationManager.h; sourceTree = "<group>"; };
+		9CB093911D3F015700C34058 /* MyLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocationManager.m; sourceTree = "<group>"; };
+		9CB093931D3F05FB00C34058 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		9CB093941D3F05FB00C34058 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		9CB093991D3F095700C34058 /* Theatre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theatre.h; sourceTree = "<group>"; };
+		9CB0939A1D3F095700C34058 /* Theatre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theatre.m; sourceTree = "<group>"; };
 		9CC7A7C41D3D720C00D64389 /* Rotten Mangoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rotten Mangoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CC7A7C81D3D720C00D64389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9CC7A7CA1D3D720C00D64389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +45,7 @@
 		9CC7A8111D3DB16A00D64389 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		9CC7A8131D3DCDEF00D64389 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		9CC7A8141D3DCDEF00D64389 /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		9CC7A8181D3EE39A00D64389 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC7A8191D3EE39A00D64389 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +63,7 @@
 		9CC7A7BB1D3D720C00D64389 = {
 			isa = PBXGroup;
 			children = (
+				9CC7A8181D3EE39A00D64389 /* MapKit.framework */,
 				9CC7A7C61D3D720C00D64389 /* Rotten Mangoes */,
 				9CC7A7C51D3D720C00D64389 /* Products */,
 			);
@@ -69,12 +82,18 @@
 			children = (
 				9CC7A7CA1D3D720C00D64389 /* AppDelegate.h */,
 				9CC7A7CB1D3D720C00D64389 /* AppDelegate.m */,
+				9CB093931D3F05FB00C34058 /* MapViewController.h */,
+				9CB093941D3F05FB00C34058 /* MapViewController.m */,
 				9CC7A80D1D3DB13300D64389 /* MovieCollectionViewController.h */,
 				9CC7A80E1D3DB13300D64389 /* MovieCollectionViewController.m */,
 				9CC7A8101D3DB16A00D64389 /* ReviewViewController.h */,
 				9CC7A8111D3DB16A00D64389 /* ReviewViewController.m */,
 				9CC7A8131D3DCDEF00D64389 /* MovieCell.h */,
 				9CC7A8141D3DCDEF00D64389 /* MovieCell.m */,
+				9CB093901D3F015700C34058 /* MyLocationManager.h */,
+				9CB093911D3F015700C34058 /* MyLocationManager.m */,
+				9CB093991D3F095700C34058 /* Theatre.h */,
+				9CB0939A1D3F095700C34058 /* Theatre.m */,
 				9CC7A80A1D3DAC4300D64389 /* Movie.h */,
 				9CC7A80B1D3DAC4300D64389 /* Movie.m */,
 				9CC7A7D31D3D720C00D64389 /* Main.storyboard */,
@@ -126,6 +145,14 @@
 					9CC7A7C31D3D720C00D64389 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = P5MV78SBAE;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -168,7 +195,10 @@
 				9CC7A8121D3DB16A00D64389 /* ReviewViewController.m in Sources */,
 				9CC7A7CC1D3D720C00D64389 /* AppDelegate.m in Sources */,
 				9CC7A8151D3DCDEF00D64389 /* MovieCell.m in Sources */,
+				9CB093951D3F05FB00C34058 /* MapViewController.m in Sources */,
+				9CB093921D3F015700C34058 /* MyLocationManager.m in Sources */,
 				9CC7A80F1D3DB13300D64389 /* MovieCollectionViewController.m in Sources */,
+				9CB0939B1D3F095700C34058 /* Theatre.m in Sources */,
 				9CC7A80C1D3DAC4300D64389 /* Movie.m in Sources */,
 				9CC7A7C91D3D720C00D64389 /* main.m in Sources */,
 			);
